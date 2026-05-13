@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Scam Site Detector (Basic)",
+  "version": "1.0",
+  "description": "Click the icon to check if the current website is safe.",
+  
+  "permissions": [
+    "activeTab"
+  ],
+  
+  "action": {
+    "default_popup": "detector.html"
+  }
+}
