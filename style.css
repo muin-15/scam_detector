@@ -1,10 +1,14 @@
 .container {
     text-align: center;
-    width:650px;
+    width:450px;
     height:100px;
-    background-color: blue;
 }
 body {
-    width:650px;
+    background-color: #0d0d0d;
+    width:450px;
     height:100px;
+    border-radius: 15%;
+}
+.btn{
+    border-radius: 5%;
 }

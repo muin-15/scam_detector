@@ -5,7 +5,8 @@
   "description": "Click the icon to check if the current website is safe.",
   
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
   
   "action": {
