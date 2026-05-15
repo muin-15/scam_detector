@@ -62,7 +62,7 @@ btn.addEventListener('click', async () => {
         console.log("completed p2");
 
         if(Tab.length>75 && Tab.length<150){
-            c=2;
+            c=0.5;
         }  
         else if(Tab.length>150){
             c=1;
@@ -82,7 +82,10 @@ btn.addEventListener('click', async () => {
         }
         console.log("completed p4");
 
-        if(a==1 || b==1 || c>=1 || d==1){
+        let result=a+b+c+d+w;
+        console.log(result);
+
+        if(result>=5){
             alert("Website is suspicious")
         }
         else{

@@ -36,3 +36,29 @@ body {
     box-shadow: 5px 5px 5px #98190d;
 
 }
+ .circle{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+      conic-gradient(red 0deg, #333 0deg);
+      position: relative;
+}
+.circle::before{
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: #111;
+      border-radius: 50%;
+}
+
+.number{
+      position: relative;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+}

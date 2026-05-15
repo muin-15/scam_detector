@@ -10,3 +10,4 @@ Suspicious Keywords in webpage check
 # Next Feature
 Popup detection
 AI Analysis
+
