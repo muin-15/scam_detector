@@ -1,14 +1,38 @@
 .container {
-    text-align: center;
     width:450px;
     height:100px;
+}
+.title{
+    color: #39ff14;
+    font-size: 30px;
+    font-weight: bold;
+}
+.title:hover {
+    color: rgb(255, 20, 20);
+    text-shadow: 0 0 5px rgb(152, 15, 15);
+}
+.btn1{
+    text-align: center;
+    padding-top: 10px;
 }
 body {
     background-color: #0d0d0d;
     width:450px;
-    height:100px;
+    height:145px;
     border-radius: 15%;
 }
 .btn{
+    font-size: 12;
     border-radius: 5%;
+    background-color: #0d0d0d;
+    color: #39ff14;
+    border: 2px solid #39ff14;
+    padding: 10px 20px;
+}
+.btn:hover {
+    background-color: #070707;
+    color: #fa0404;
+    border: 2px solid #cc2213;
+    box-shadow: 5px 5px 5px #98190d;
+
 }
