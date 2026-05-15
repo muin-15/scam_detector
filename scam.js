@@ -1,6 +1,7 @@
 const btn=document.getElementById('btn');
 const httpsearch="http://";
 const httpssearch="https://";
+let a=0,b=0,c=0,d=0,e=0;
 
 let susurl=["paypal-security-login.xyz",
     "amaz0n-verification.net","free-money-2026.click"];
@@ -16,45 +17,51 @@ let suswords=["free-money","claim-prize","win-now","winner","congratulations",
     "keygen","mod-apk","unlock-premium"];
 
 
+
 btn.addEventListener('click',function(){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         var Tab = tabs[0].url;
+        let pagetext=document.body.innerText.toLowerCase();
+        console.log(pagetext);
 
     if(Tab.includes(httpsearch)){
-        alert("This website is not secure");
+        a=1;
     }
     else if(Tab.includes(httpssearch)){
-        alert("This website is secure");
+        a=0;
     }
     else{
-        alert("This website is not secure");
+        a=1;
+    }
+    alert("completed p1");
+    for(let i=0; i<susurl.length; i++){
+        if(Tab.includes(susurl[i])){
+            b=1;
+            break;
+        }
+    }
+    b=0;
+    alert("completed p2");
+    if(Tab.length>75 && tab.length<150){
+        c=2;
+    }  
+    else if(Tab.length>150){
+        c=1;
+    }
+    else{
+        c=0;
+    }
+    alert("completed p3");
+    for(let i=0; i<suswords.length; i++){
+        if(pagetext.includes(suswords[i])){
+            d=1;
+            return;
+        }
+    }
+    d=0;
+    alert("completed p4");
+    if(a==1 || b==1 || c==1 || d==1){
+        alert("Website is suspicious")
     }
     });
 });
-btn.addEventListener('click',function(){
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        var Tab = tabs[0].url;
-        for(let i=0; i<susurl.length; i++){
-            if(Tab.includes(susurl[i])){
-                alert("This website may be a scam");
-                return;
-            }
-        }
-        alert("This website is not a scam");
-    });
-});
-btn.addEventListener('click',function(){
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        var Tab = tabs[0].url;
-        if(Tab.length>75 && tab.length<150){
-            alert("This website is suspicious");
-        }  
-        else if(Tab.length>150){
-            alert("This website is harmful");
-        }
-        else{
-            alert("This website is safe");
-        }
-    });
-});
-
