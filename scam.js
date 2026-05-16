@@ -44,28 +44,28 @@ btn.addEventListener('click', async () => {
 
 
         if(Tab.includes(httpsearch)){
-            a=1;
+            a=25;
         }
         else if(Tab.includes(httpssearch)){
             a=0;
         }
         else{
-            a=1;
+            a=25;
         }
         console.log("completed p1");
         for(let i=0; i<susurl.length; i++){
             if(Tab.includes(susurl[i])){
-                b=1;
+                b=25;
                 break;
             }
         }
         console.log("completed p2");
 
         if(Tab.length>75 && Tab.length<150){
-            c=0.5;
+            c=15;
         }  
         else if(Tab.length>150){
-            c=1;
+            c=25;
         }
         else{
             c=0;
@@ -78,7 +78,7 @@ btn.addEventListener('click', async () => {
             }
         }
         if (w>5){
-            d=1;
+            d=20;
         }
         console.log("completed p4");
 
@@ -91,9 +91,34 @@ btn.addEventListener('click', async () => {
         else{
             alert("Website looks safe");
         }
+        let circle = document.getElementById("circle");
+        let number = document.getElementById("number");
+
+        let count = 0;
+        let target = result;
+
+        let interval = setInterval(() => {
+
+        count++;
+
+        number.innerHTML = count + "%";
+
+        circle.style.background =
+        `conic-gradient(
+            red ${count * 3.6}deg,
+             #333 ${count * 3.6}deg
+            )`;
+
+        if(count >= target){
+            clearInterval(interval);
+        }
+
+        }, 30);
     }
 catch (error) {
     console.error('Error executing script:'+ error.message);
     alert('An error occurred while analyzing the page.');
   };
 });
+
+
