@@ -86,10 +86,10 @@ btn.addEventListener('click', async () => {
         console.log(result);
 
         if(result>=5){
-            alert("Website is suspicious")
+            console.log("Website is suspicious")
         }
         else{
-            alert("Website looks safe");
+            console.log("Website looks safe");
         }
         let circle = document.getElementById("circle");
         let number = document.getElementById("number");
