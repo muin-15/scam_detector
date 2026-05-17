@@ -34,39 +34,36 @@ btn.addEventListener('click', async () => {
         target: { tabId: tab.id },
         func: checkSuspicious
     });
-    const page = await chrome.scripting.executeScript({
+    /*const page = await chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: checkSuspicious
-    });
+    });*/
 
         let pagetext = injectionResults[0].result;
         let a=0,b=0,c=0,d=0,w=0;
 
 
         if(Tab.includes(httpsearch)){
-            a=25;
+            a=50;
         }
         else if(Tab.includes(httpssearch)){
             a=0;
         }
         else{
-            a=25;
+            a=50;
         }
         console.log("completed p1");
         for(let i=0; i<susurl.length; i++){
             if(Tab.includes(susurl[i])){
-                b=25;
+                b=susurl.length;
                 break;
             }
         }
         console.log("completed p2");
 
-        if(Tab.length>75 && Tab.length<150){
-            c=15;
+        if(Tab.includes(susurl[0]) || Tab.includes(susurl[1]) || Tab.includes(susurl[2])){
+            c=50;
         }  
-        else if(Tab.length>150){
-            c=25;
-        }
         else{
             c=0;
         }
@@ -74,10 +71,10 @@ btn.addEventListener('click', async () => {
 
         for(let i=0; i<suswords.length; i++){
             if(pagetext.includes(suswords[i])){
-                w++;
+                w+=3;
             }
         }
-        if (w>5){
+        if (w>15){
             d=20;
         }
         console.log("completed p4");
@@ -85,7 +82,7 @@ btn.addEventListener('click', async () => {
         let result=a+b+c+d+w;
         console.log(result);
 
-        if(result>=5){
+        if(result>=80){
             console.log("Website is suspicious")
         }
         else{
@@ -104,13 +101,13 @@ btn.addEventListener('click', async () => {
             mainColor = "#FFD700"; 
             statusMessage = "Website is moderately suspicious.";
             statusColor = "#FFD700";
-        } else { // result >= 70
+        } else { 
             mainColor = "#FF0000"; 
             statusMessage = "Website is highly suspicious!";
             statusColor = "#FF0000";
         }
 
-        let statusElement = document.getElementById("status");
+        let statusElement = document.getElementById("status-message");
         if (statusElement) {
             statusElement.textContent = statusMessage;
             statusElement.style.color = statusColor;
@@ -121,7 +118,9 @@ btn.addEventListener('click', async () => {
 
         circle.style.background = `conic-gradient(${mainColor} 0deg, #333 0deg)`;
         number.innerHTML = "0%";
-        
+
+        result=Math.min(result, 100);
+
         let count = 0;
         let target = result;
 
@@ -133,7 +132,7 @@ btn.addEventListener('click', async () => {
 
             circle.style.background =
             `conic-gradient(
-                red ${count * 3.6}deg,
+                ${mainColor} ${count * 3.6}deg,
                 #333 ${count * 3.6}deg
                 )`;
 
