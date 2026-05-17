@@ -91,29 +91,57 @@ btn.addEventListener('click', async () => {
         else{
             console.log("Website looks safe");
         }
-        let circle = document.getElementById("circle");
-        let number = document.getElementById("number");
 
+        let mainColor;
+        let statusMessage = "";
+        let statusColor = "";
+
+        if (result < 50) {
+            mainColor = "#2dc911"; 
+            statusMessage = "Website looks safe.";
+            statusColor = "#2dc911";
+        } else if (result >= 50 && result < 70) {
+            mainColor = "#FFD700"; 
+            statusMessage = "Website is moderately suspicious.";
+            statusColor = "#FFD700";
+        } else { // result >= 70
+            mainColor = "#FF0000"; 
+            statusMessage = "Website is highly suspicious!";
+            statusColor = "#FF0000";
+        }
+
+        let statusElement = document.getElementById("status");
+        if (statusElement) {
+            statusElement.textContent = statusMessage;
+            statusElement.style.color = statusColor;
+        }
+
+        let circle = document.querySelector(".circle");
+        let number = document.querySelector(".number");
+
+        circle.style.background = `conic-gradient(${mainColor} 0deg, #333 0deg)`;
+        number.innerHTML = "0%";
+        
         let count = 0;
         let target = result;
 
         let interval = setInterval(() => {
 
-        count++;
+            count++;
 
-        number.innerHTML = count + "%";
+            number.innerHTML = count + "%";
 
-        circle.style.background =
-        `conic-gradient(
-            red ${count * 3.6}deg,
-             #333 ${count * 3.6}deg
-            )`;
+            circle.style.background =
+            `conic-gradient(
+                red ${count * 3.6}deg,
+                #333 ${count * 3.6}deg
+                )`;
 
-        if(count >= target){
-            clearInterval(interval);
-        }
+            if(count >= target){
+                clearInterval(interval);
+            }
 
-        }, 30);
+            }, 30);
     }
 catch (error) {
     console.error('Error executing script:'+ error.message);
